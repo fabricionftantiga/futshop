@@ -1,0 +1,152 @@
+/*------------------  Carrinho  --------------------*/
+.cabecalho{
+    width: 90%;
+    height: 70px;
+    background: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%);
+    margin-top: 25px;
+    border-radius: 8px;
+}
+
+.nav-pesquisa{
+    width: 100%;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.linha{
+    width: 30%;
+    height: 60%;
+    position: absolute;
+    left: 40px;
+}
+
+.input-pesquisar{
+    width: 100%;
+    height: 100%;
+    border-radius: 8px;
+    padding-left: 12px;
+    color: rgb(183, 181, 181);
+    border: 1px solid rgb(211, 209, 209);
+}
+
+.btn-pesquisa{
+    height: 80%;
+    width: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background: transparent;
+    position: absolute;
+    width: 35px;
+    top: 20%;
+    right: -10px;
+    border: none;
+}
+
+.icon-lupa{
+    width: 28px
+}
+
+.aCarrinho{
+    position: absolute;
+    cursor: pointer;
+    right: 50px;
+}
+
+.quantidade-carrinho{
+    position: absolute;
+    right: 35px;
+    top: -13px;
+    font: 20px impact;
+    color: #00a000;
+    margin: 0;
+}
+
+.margem{
+    height: 10%;
+    width: 100%;
+    background-image: linear-gradient(to right, rgb(79, 48, 179), rgb(23, 210, 235));
+    border-radius: 0 0 8px 8px;
+}
+
+/*------------------  Main  --------------------*/
+main{
+    width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+    min-height: 600px;
+}
+
+/*------------------  Footer  --------------------*/
+.index-footer{
+    width: 100%;
+    height: 400px;
+    background: rgb(94, 61, 202);
+    display: flex;
+    flex-direction: column;
+    align-items: center
+}
+
+.div-info, .div-redes{
+    width: 75%;
+    height: 70%;
+    border: 2px solid red;
+    display: flex;
+}
+
+.div-redes{
+    flex-direction: column;
+    height: 30%;
+}
+
+.info{
+    width: 25%;
+    height: 100%;
+    border: 2px solid rgb(0, 153, 255);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.titulo{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    color: white;
+    text-transform: uppercase;
+    border: 2px solid purple;
+}
+
+.texto{
+    width: 80%;
+    height: 80%;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
+    border: 1px solid yellow;
+}
+
+.div-imgs{
+    width: 100%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+}
+
+.icon{
+    width: 50px;
+    height: 50px;
+    margin-left: 20px;
+    margin-top: 20px;
+}

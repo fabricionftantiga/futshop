@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Carrinho</title>
+
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/header-main-footer.css">
+    <link rel="stylesheet" href="css/carrinho.css">
+
+    <script
+        src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+        crossorigin="anonymous" defer>
+    </script>
+    <script src="js/index.js" defer></script>
+    <script src="js/carrinho.js" defer></script>
+
+</head>
+<body>
+
+    <div class="container-1">
+        <nav class="nav-menu">
+            <header class="header-menu">FutShop</header>
+            <a class="item-menu" href="index.html">
+                <div class="img-menu"><img src="icon/iconCasa.png" class="icon-menu"></div>
+                <div class="texto-menu">Home</div>
+            </a>
+
+            <a class="item-menu" href="carrinho.html">
+                <div class="img-menu"><img src="icon/carrinho-menu.png" class="icon-menu"></div>
+                <div class="texto-menu">Carrinho</div>
+            </a>
+        </nav>
+    </div>
+
+    <div class="container-2">
+        <header class="cabecalho">
+            <nav class="nav-pesquisa">
+                <div class="linha">
+                    <input type="text" class="input-pesquisar" placeholder="Pesquise o seu produto">
+                    <button class="btn-pesquisa">
+                        <img src="icon/lupa.png" class="icon-lupa">
+                    </button>
+                </div>
+
+                <a class="aCarrinho" href="carrinho.html" onclick="gerarCarrinho()">
+                    <img src="icon/carrinho-carrinho.png" width="33px">
+                </a>
+            </nav>
+            <div class="margem"></div>
+        </header>
+    
+        <main>
+            <div class="container-carrinho">
+                <div class="div-carrinho">
+                    <header class="header-carrinho">
+                        <div class="part-header-1">
+                            <img src="icon/carrinho-carrinho - Copia.png" width="35px">
+                            <p class="titulo-carrinho">Carrinho de compras</p>
+                        </div>
+                        <div class="part-header-2">
+                            <button class="btn-excluir" onclick="excluir()"><img src="icon/lixo.png" width="23px"></button>
+                        </div>
+                    </header>
+
+                    <table class="itens-carrinho" id="itensCarrinho">
+                    </table>
+
+                    <footer class="valor-carrinho">
+                        <div class="pagamento">
+                            <div class="part-footer-1" id="texto-carrinho">
+                                <p class="texto-carrinho">Total: </p>
+                                <p class="total-carrinho" id="total-carrinho"></p>
+                            </div>
+                            <div class="part-footer-2">
+                                <button class="btn-carrinho">Fazer pedido</button>
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+        </main>
+    
+        <footer class="index-footer">
+            <div class="div-info">
+                <div class="info">
+                    <header class="titulo">Contatos</header>
+                    <p class="texto">Lionel Messi é um futebolista argentino que atua como atacante. Atualmente joga pelo Paris Saint-Germain e pela Seleção Argentina, onde atuando como capitão venceu a Copa de 2022</p>
+                </div>
+    
+                <div class="info">
+                    <header class="titulo">Contatos</header>
+                    <p class="texto">Lionel Messi é um futebolista argentino que atua como atacante. Atualmente joga pelo Paris Saint-Germain e pela Seleção Argentina, onde atuando como capitão venceu a Copa de 2022</p>
+                </div>
+    
+                <div class="info">
+                    <header class="titulo">Contatos</header>
+                    <p class="texto">Lionel Messi é um futebolista argentino que atua como atacante. Atualmente joga pelo Paris Saint-Germain e pela Seleção Argentina, onde atuando como capitão venceu a Copa de 2022</p>
+                </div>
+    
+                <div class="info">
+                    <header class="titulo">Contatos</header>
+                    <p class="texto">Lionel Messi é um futebolista argentino que atua como atacante. Atualmente joga pelo Paris Saint-Germain e pela Seleção Argentina, onde atuando como capitão venceu a Copa de 2022</p>
+                </div>
+            </div>
+            <div class="div-redes">
+                <header class="titulo">Redes</header>
+                <div class="div-imgs">
+                    <img src="icon/github-sign.png" class="icon">
+                    <img src="icon/instagram.png" class="icon">
+                    <img src="icon/linkedin.png" class="icon">
+                    <img src="icon/youtube.png" class="icon">
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

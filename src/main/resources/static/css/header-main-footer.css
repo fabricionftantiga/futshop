@@ -23,7 +23,7 @@
     width: 30%;
     height: 60%;
     position: absolute;
-    left: 40px;
+    left: 30px;
 }
 
 .input-pesquisar{
@@ -57,7 +57,7 @@
 .aCarrinho{
     position: absolute;
     cursor: pointer;
-    right: 50px;
+    right: 40px;
 }
 
 .quantidade-carrinho{
@@ -76,77 +76,121 @@
     border-radius: 0 0 8px 8px;
 }
 
-/*------------------  Main  --------------------*/
-main{
-    width: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-    min-height: 600px;
-}
-
 /*------------------  Footer  --------------------*/
-.index-footer{
+.rodape{
     width: 100%;
-    height: 400px;
-    background: rgb(94, 61, 202);
+    height: auto;
+    background: rgb(79, 48, 179);
     display: flex;
     flex-direction: column;
-    align-items: center
+    align-items: center;
+    justify-content: space-between;
 }
 
 .div-info, .div-redes{
     width: 75%;
-    height: 70%;
-    border: 2px solid red;
     display: flex;
+    flex-wrap: wrap;
+    margin: 25px 0;
 }
 
 .div-redes{
-    flex-direction: column;
-    height: 30%;
+    width: 100%;
+    background: rgb(59, 35, 140);
+    height: 40%;
+    margin: 0;
 }
 
 .info{
     width: 25%;
     height: 100%;
-    border: 2px solid rgb(0, 153, 255);
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.titulo{
+.titulo, .titulo-1{
     width: 100%;
-    height: 20%;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     justify-content: center;
     font-family: Arial, Helvetica, sans-serif;
     font-size: 25px;
+    font-weight: bold;
     color: white;
     text-transform: uppercase;
-    border: 2px solid purple;
+    margin: 15px 0;
 }
 
-.texto{
-    width: 80%;
-    height: 80%;
+.titulo-1{
+    text-decoration: none;
+}
+
+.texto, .texto-1{
+    width: auto;
+    height: auto;
+    font-size: 16px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    color: white;
-    border: 1px solid yellow;
+    color: rgb(212, 212, 212);
+    margin: 0;
+}
+
+.texto-1{
+    cursor: pointer;
+}
+
+.texto-1:hover{
+    color: rgb(23, 210, 235);
 }
 
 .div-imgs{
     width: 100%;
-    height: 80%;
     display: flex;
+    align-items: center;
     justify-content: center;
+    margin-bottom: 25px;
 }
 
 .icon{
-    width: 50px;
-    height: 50px;
-    margin-left: 20px;
-    margin-top: 20px;
+    width: 35px;
+    height: 35px;
+    margin: 0px 7.5px;
+}
+
+.btn-menu{
+    position: absolute;
+    left: 0;
+    display: none;
+}
+
+@media screen and (max-width: 1000px) {
+
+    .btn-menu{
+        left: 15px;
+        display: flex;
+    }
+
+    .linha{
+        width: 55%;
+        left: 55px;
+    }
+
+    .input-pesquisar{
+        font-size: 11PX;
+    }
+
+    .aCarrinho{
+        right: 15px
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .info{
+        width: 50%;
+        margin-bottom: 25px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .info{width: 100%;}
 }

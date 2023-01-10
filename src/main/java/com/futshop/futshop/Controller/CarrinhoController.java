@@ -8,6 +8,8 @@ import com.futshop.futshop.Repository.UsuarioRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/carrinho")
 public class CarrinhoController {
@@ -44,6 +46,7 @@ public class CarrinhoController {
                 itens.setPrecoFinal(itens.getPrecoUnitario());
 
                 usuario.setItens(itens);
+                produto.setQuantidadeEstoque(produto.getQuantidadeEstoque() - 1);
             }
         }
 
@@ -52,20 +55,44 @@ public class CarrinhoController {
     }
 
     @PutMapping(path = "/produto/{codigo}/usuario/{codigoCli}/acao/{acao}")
-    public void alterarItem(@PathVariable Long codigo,
-                            @PathVariable Long codigoCli,
-                            @PathVariable String acao){
+    public List<CarrinhoModel> alterarItem(@PathVariable Long codigo,
+                                           @PathVariable Long codigoCli,
+                                           @PathVariable String acao){
         ProdutoModel produto = produtoRepository.buscarPorID(codigo);
         UsuarioModel usuario = usuarioRepository.buscarPorID(codigoCli);
 
         for(CarrinhoModel item: usuario.getItens()){
-            if(item.getCodigo() == codigo && acao.equals("+") && produto.getQuantidadeEstoque() > 0) soma(produto, item);
-            if(item.getCodigo() == codigo && acao.equals("-")) subtracao(produto, item);
-            break;
+            if(item.getCodigo() == codigo && acao.equals("+") && produto.getQuantidadeEstoque() > 0) {
+                soma(produto, item);
+                break;
+            }
+            if(item.getCodigo() == codigo && acao.equals("-")){
+                subtracao(produto, item, codigoCli);
+                break;
+            }
+        }
+
+        usuarioRepository.save(usuario);
+        produtoRepository.save(produto);
+        return usuario.getItens();
+    }
+
+    @DeleteMapping(path = "/produto/{codigoProd}/usuario/{codigoCli}")
+    public UsuarioModel excluirItem(@PathVariable Long codigoProd,
+                                    @PathVariable Long codigoCli){
+        ProdutoModel produto = produtoRepository.buscarPorID(codigoProd);
+        UsuarioModel usuario = usuarioRepository.buscarPorID(codigoCli);
+
+        for(int i = 0; i <= usuario.getItens().size(); i++){
+            if(usuario.getItens().get(i).getCodigo() == codigoProd){
+                produto.setQuantidadeEstoque(produto.getQuantidadeEstoque() + usuario.getItens().get(i).getQuantidade());
+                usuario.getItens().remove(i);
+                break;
+            }
         }
 
         produtoRepository.save(produto);
-        usuarioRepository.save(usuario);
+        return usuarioRepository.save(usuario);
     }
 
     @DeleteMapping(path = "/usuario/{codigo}")
@@ -85,20 +112,15 @@ public class CarrinhoController {
     public void soma(ProdutoModel produto, CarrinhoModel item){
         item.setQuantidade(item.getQuantidade() + 1);
         produto.setQuantidadeEstoque(produto.getQuantidadeEstoque() - 1);
-
         item.setPrecoFinal(item.getPrecoUnitario() * item.getQuantidade());
     }
 
-    public void subtracao(ProdutoModel produto, CarrinhoModel item){
-        if(item.getQuantidade() == 1){
-            produto.setQuantidadeEstoque(produto.getQuantidadeEstoque() + item.getQuantidade());
-            excluirItens(item.getCodigo());
-        }
+    public void subtracao(ProdutoModel produto, CarrinhoModel item, Long codigoCli){
+        if(item.getQuantidade() == 1) excluirItem(produto.getCodigo(), codigoCli);
         else{
             item.setQuantidade(item.getQuantidade() - 1);
             produto.setQuantidadeEstoque(produto.getQuantidadeEstoque() + 1);
+            item.setPrecoFinal(item.getPrecoUnitario() * item.getQuantidade());
         }
-
-        item.setPrecoFinal(item.getPrecoUnitario() * item.getQuantidade());
     }
 }

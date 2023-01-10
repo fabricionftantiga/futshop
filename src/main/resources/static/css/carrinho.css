@@ -1,6 +1,6 @@
 .container-carrinho{
     width: 90%;
-    min-height: 100%;
+    min-height: 650px;
     height: auto;
     display: flex;
     align-items: center;
@@ -38,7 +38,10 @@
 
 .valor-carrinho{justify-content: right;}
 
-.part-header-1, .part-header-2{display: flex;}
+.part-header-1, .part-header-2{
+    display: flex;
+    align-items: center;
+}
 
 /*--- Header ---*/
 .titulo-carrinho{
@@ -47,6 +50,10 @@
     margin: 0;
     margin-left: 5px;
     font-weight: bold;
+}
+
+.icon-carrinho{
+    width: 36px;
 }
 
 .btn-excluir{
@@ -85,6 +92,7 @@
 
 .linha-carrinho{
     height: 85px;
+    flex-wrap: wrap;
     background: rgb(237, 228, 252);
 }
 
@@ -102,7 +110,7 @@
 
 /*Colunas*/
 .coluna-principal-2, .coluna-2{width: 20%;    }
-.coluna-principal-3, .coluna-principal-4, .coluna-3, .coluna-4{width: 15%;}
+.coluna-principal-3, .coluna-principal-4, .coluna-3, .coluna-4{width: 14%;}
 
 .coluna-3, .coluna-4{color: rgb(30, 177, 111);}
 
@@ -117,7 +125,7 @@
     justify-content: center;
 }
 
-.desc-carrinho{ width: 60%;}
+.desc-carrinho{width: 60%;}
 .imgs-carrinho{height: 80%;}
 
 .texto-quantidade-carrinho, .btns-quantidade-carrinho{
@@ -162,6 +170,7 @@
 
 .part-footer-1, .part-footer-2{
     height: auto;
+    width: auto;
     display: flex;
     justify-content: center;
     margin: 0;
@@ -170,9 +179,9 @@
 .texto-carrinho, .total-carrinho{
     margin: 0;
     font: 16px calibri;
-    display: flex;
     font-weight: bold;
     color: rgb(138, 136, 136);
+    display: flex;
 }
 
 .total-carrinho{
@@ -180,7 +189,7 @@
     color: rgb(37, 185, 118);
 }
 
-.btn-carrinho{
+.btn-carrinho, .btn-pedido{
     width: 130px;
     height: 40px;
     background: green;
@@ -196,6 +205,59 @@
     box-shadow: 0 2px 4px rgb(0 0 0 / 25%), 0 8px 16px rgb(0 0 0 / 25%);
 }
 
-.btn-carrinho:hover{
+.btn-carrinho:hover, .btn-pedido:hover{
     background: rgb(1, 83, 1);
+}
+
+@media screen and (max-width: 1000px) {
+    .container-carrinho{
+        width: 85%;
+        min-height: 500px;
+        margin: 0;
+    }
+
+    .div-carrinho{
+        width: 100%;
+        margin: 50px 0;
+    }
+
+    .icon-carrinho{
+        height: 35px;
+    }
+    
+    .titulo-carrinho{
+        font-size: 18px;
+    }
+
+    .btn-excluir{
+        width: 30px;
+        height: 30px;
+    }
+
+    .linha-principal{
+        display: none;
+    }
+
+    .linha-carrinho{
+        height: 170px;
+    }
+
+    .coluna-1{
+        width: 100%;
+        height: 50%;
+    }
+
+    .coluna-2, .coluna-3, .coluna-4{
+        justify-content: center;
+        width: 32%;
+        height: 50%;
+    }
+
+    .texto-quantidade-carrinho{
+        justify-content: right;
+    }
+
+    .btns-quantidade-carrinho{
+        justify-content: center;
+    }
 }

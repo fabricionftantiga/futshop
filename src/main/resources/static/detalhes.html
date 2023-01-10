@@ -4,24 +4,19 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Carrinho</title>
+    <title>Detalhes do produto</title>
 
     <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/header-main-footer.css">
-    <link rel="stylesheet" href="css/carrinho.css">
-    <link rel="stylesheet" href="css/formularios.css">
+    <link rel="stylesheet" href="css/detalhes.css">
 
     <script
             src="https://code.jquery.com/jquery-3.6.1.min.js"
             integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
             crossorigin="anonymous" defer>
     </script>
-
-    <script src="js/index.js" defer></script>
-    <script src="js/meusDados.js" defer></script>
     <script src="js/carrinho.js" defer></script>
-
+    <script src="js/detalhes.js" defer></script>
 </head>
 <body>
 <main class="container-conteudo">
@@ -47,31 +42,37 @@
         <div class="margem"></div>
     </header>
 
-    <div class="container-carrinho">
-        <div class="div-carrinho">
-            <header class="header-carrinho">
-                <div class="part-header-1">
-                    <img src="icon/carrinho-carrinho - Copia.png" width="30px">
-                    <p class="titulo-carrinho">Carrinho de compras</p>
+    <div class="container-detalhes">
+        <div class="detalhes">
+            <div class="detalhes-img">
+                <div class="margem-img">
+                    <img src="img/camisa-barcelona-removebg-preview.png" class="img">
                 </div>
-                <div class="part-header-2">
-                    <button class="btn-excluir" onclick="excluir()"><img src="icon/lixo.png" width="23px"></button>
-                </div>
-            </header>
-
-            <table class="itens-carrinho" id="itensCarrinho">
-            </table>
-
-            <footer class="valor-carrinho">
-                <div class="pagamento">
-                    <div class="part-footer-1">
-                        <p class="texto-carrinho" id="texto-carrinho">Total: </p>
+            </div>
+            <div class="detalhes-info">
+                <div class="margem-info">
+                    <div class="linha-numeros">
+                        <div class="detalhes-promocao">
+                            <span class="display-numeros" id="quantidadeDesconto">45%</span>
+                            <p class="texto-numeros">Desconto</p>
+                        </div>
+                        <div class="detalhes-estoque">
+                            <span class="display-numeros" id="quantidadeEstoque">11</span>
+                            <p class="texto-numeros">Em estoque</p>
+                        </div>
                     </div>
-                    <div class="part-footer-2">
-                        <button class="btn-carrinho">Fazer pedido</button>
+                    <div class="linha-descricao">
+                        <p class="texto-descricao" id="descricao">Camisa Nike manchester City II 2022/23 Torcedor Pro
+                            Masculina</p>
+                    </div>
+                    <div class="linha-valor">
+                        <p class="texto-valor" id="valor"> R$ 180,00</p>
+                    </div>
+                    <div class="linha-button">
+                        <button class="button-adcionar" onclick="adcionaItem()">Adcionar ao carrinho</button>
                     </div>
                 </div>
-            </footer>
+            </div>
         </div>
     </div>
 
@@ -141,6 +142,7 @@
                 <div class="img-menu"><img src="icon/carrinho-menu.png" class="icon-menu"></div>
                 <div class="texto-menu">Carrinho</div>
             </a>
+        </div>
     </nav>
 
     <label for="abrirMenu">

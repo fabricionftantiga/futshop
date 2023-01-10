@@ -41,7 +41,7 @@ label{
     left: 20px;
 }
 
-button, .voltar{
+button, a, .voltar{
     width: 60%;
     height: 35px;
     margin-bottom: 5px;
@@ -55,7 +55,7 @@ button, .voltar{
     cursor: pointer;
 }
 
-button:hover, .voltar:hover{
+button:hover, a:hover, .voltar:hover{
     background: rgb(4, 80, 4);
 }
 

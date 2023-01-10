@@ -1,3 +1,8 @@
+body{
+    padding: 0;
+    margin: 0;
+}
+
 .container-sections{
     width: 90%;
     height: auto;
@@ -76,6 +81,7 @@
 }
 
 .numero-promo, .texto-promo{
+    color: #222;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
     text-transform: uppercase;
@@ -126,4 +132,30 @@
 
 .adciona-carrinho:hover{
     background: rgb(3, 114, 3);
+}
+
+
+@media screen and (max-width: 1000px) {
+    .container-sections{
+        width: 85%;
+    }
+
+    .section-promocao, .section-propaganda, .section-novidade, .section-produto{
+        justify-content: space-between;
+    }
+
+    .produto{
+        width: 47.5%;
+        margin: 0;
+        margin-bottom: 10%;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    
+    .produto{
+        width: 100%;
+        margin: 0;
+        margin-bottom: 10%;
+    }
 }

@@ -14,9 +14,8 @@ public class ProdutoModel {
     @Column(length = 50, nullable = false)
     private String nomeProduto;
 
-    @Lob
-    @Column(length = 2000)
-    private byte[] imagem = null;
+    @Column(length = 500)
+    private String imagem;
 
     @Column(length = 400, nullable = false)
     private String descricao;
@@ -31,17 +30,20 @@ public class ProdutoModel {
     private String tamanho;
 
     @Column(length = 10, nullable = false)
-    private Double valor;
+    private Double valorBase;
+
+    @Column(length = 10, nullable = false)
+    private Double valorComDesconto;
 
     @Column(length = 50, nullable = false)
     private Date dataPostagem = new Date();
 
     //Gets e Sets
-    public byte[] getImagem() {
+    public String getImagem() {
         return imagem;
     }
 
-    public void setImagem(byte[] imagem) {
+    public void setImagem(String imagem) {
         this.imagem = imagem;
     }
 
@@ -77,12 +79,20 @@ public class ProdutoModel {
         this.promocao = promocao;
     }
 
-    public Double getValor() {
-        return valor;
+    public Double getValorBase() {
+        return valorBase;
     }
 
-    public void setValor(Double valor) {
-        this.valor = valor;
+    public void setValorBase(Double valorBase) {
+        this.valorBase = valorBase;
+    }
+
+    public Double getValorComDesconto() {
+        return valorComDesconto;
+    }
+
+    public void setValorComDesconto(Double valorComDesconto) {
+        this.valorComDesconto = valorComDesconto;
     }
 
     public Integer getQuantidadeEstoque() {

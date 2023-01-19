@@ -12,13 +12,14 @@ function renderizarFormLogin(acao){
 
 function fazerLogin(){
     $.ajax({
-        method: "GET",
+        method: "POST",
         url: "usuario/email/"+$('#email').val()+"/senha/"+$('#senha').val(),
         success: function (dados){
             if(dados.codigo != null){
                 localStorage.setItem('logado', 'logado');
                 localStorage.setItem('codigo', dados.codigo);
                 localStorage.setItem('nome', dados.nome.split(" ")[0]);
+                localStorage.setItem('quantidadeItens', dados.quantidadeItens);
                 alert("Logado com sucesso");
                 location.reload();
             }
@@ -133,5 +134,4 @@ $('#next').click(function (){
 
 $('#back').click(function (){
     $('#step-2').hide().prev().show();
-    $('#nome').val("testo");
 });

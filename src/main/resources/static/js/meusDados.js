@@ -1,19 +1,5 @@
 window.onload = () => {
-    if(localStorage.getItem('logado') == 'logado'){
-        $("#nomeUsuario").append('<p class="usuario-logado">Olá '+localStorage.getItem('nome')+'</p>');
-        listarDados();
-    }
-    else {
-        $("#nomeUsuario").append('<p class="usuario-logado">Faça login</p>');
-    }
-}
-
-function abrirMeusDados(){
-    if(localStorage.getItem('logado') == 'logado') location.href="meusDados.html";
-    else{
-        document.getElementById('containerLogin').classList.add('ativo');
-        alert("Faça login para poder vizualizar seus dados");
-    }
+    verificarLogin();
 }
 
 function listarDados(){

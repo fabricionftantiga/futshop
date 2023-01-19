@@ -20,7 +20,7 @@
 
 .container-cadastro.ativo{
     opacity: 1;
-    z-index: 1;
+    z-index: 2;
 }
 
 .form-cadastro{
@@ -163,7 +163,7 @@ input:hover{
 
 .container-login.ativo{
     opacity: 1;
-    z-index: 1;
+    z-index: 2;
 }
 
 .form-login{

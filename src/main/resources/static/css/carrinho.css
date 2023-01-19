@@ -210,17 +210,15 @@
 }
 
 @media screen and (max-width: 1000px) {
-    .container-carrinho{
-        width: 85%;
-        min-height: 500px;
-        margin: 0;
-    }
+    .container-carrinho{min-height: 500px;}
 
     .div-carrinho{
         width: 100%;
         margin: 50px 0;
     }
+}
 
+@media screen and (max-width: 600px) {
     .icon-carrinho{
         height: 35px;
     }

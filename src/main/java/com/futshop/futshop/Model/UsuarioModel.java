@@ -54,6 +54,11 @@ public class UsuarioModel {
     @ElementCollection
     private List<CarrinhoModel> itens = null;
 
+    @Column(length = 8)
+    private Integer quantidadeItens = 0;
+
+    @Column(length = 10)
+    private Double valorTotalItens = 0.0;
 
     //Gets e sets
     public Long getCodigo() {
@@ -174,5 +179,21 @@ public class UsuarioModel {
 
     public void setItens(CarrinhoModel itens) {
         this.itens.add(itens);
+    }
+
+    public Integer getQuantidadeItens() {
+        return quantidadeItens;
+    }
+
+    public void setQuantidadeItens(Integer quantidadeItens) {
+        this.quantidadeItens = quantidadeItens;
+    }
+
+    public Double getValorTotalItens() {
+        return valorTotalItens;
+    }
+
+    public void setValorTotalItens(Double valorTotalItens) {
+        this.valorTotalItens = valorTotalItens;
     }
 }

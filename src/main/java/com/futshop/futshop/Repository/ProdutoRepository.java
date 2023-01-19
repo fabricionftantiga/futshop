@@ -16,4 +16,7 @@ public interface ProdutoRepository extends JpaRepository <ProdutoModel, Long> {
 
     @Query(value = "select * from produto order by dataPostagem asc", nativeQuery = true)
     public List<ProdutoModel> buscarNovidades();
+
+    @Query(value = "select * from produto  where descricao like %?%", nativeQuery = true)
+    public List<ProdutoModel> buscarPorDescricao(String descricao);
 }

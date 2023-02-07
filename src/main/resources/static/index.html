@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/header-main-footer.css">
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/formularios.css">
+    <link rel="stylesheet" href="css/messageBox.css">
 
     <script
         src="https://code.jquery.com/jquery-3.6.1.min.js"
@@ -24,57 +25,63 @@
  </head>
 
  <body>
-    <!--Barra de menu-->
-    <input type="checkbox" class="menu" id="abrirMenu">
-    <main class="container-menu">
-        <nav class="nav-menu">
-            <div class="menu-login">
-                <p class="p-login-cadastro" id="login">Faça<a onclick="renderizarFormLogin(1)" class="a-login-cadastro">
-                    Login </a>ou
-                    <br> se <a class="a-login-cadastro" onclick="renderizarFormCadastro(1)">Cadastre</a>
-                </p>
-                <p class="p-login-sair" id="sair"><a class="a-login-cadastro" onclick="sair()">Sair</a></p>
-            </div>
+     <!--Barra de menu-->
+     <input type="checkbox" class="input-menu" id="abrirMenu">
+     <div class="sobreposicao-menu"></div>
+     <nav class="container-menu">
+         <div class="menu-login">
+             <p class="p-login-cadastro" id="login">Faça<a onclick="renderizarFormLogin(1)" class="a-login-cadastro">
+                 Login </a>ou
+                 <br> se <a onclick="renderizarFormCadastro(1)" class="a-login-cadastro">Cadastre</a>
+             </p>
+             <p class="p-login-sair" id="sair"><a class="a-login-cadastro" onclick="sair()">Sair</a></p>
+         </div>
 
-            <header class="header-menu">FutShop</header>
+         <header class="header-menu">FutShop</header>
 
-            <div class="menu-links">
-                <a class="item-menu" href="index.html">
-                    <div class="img-menu"><img src="icon/iconCasa.png" class="icon-menu"></div>
-                    <div class="texto-menu">Home</div>
-                </a>
+         <div class="menu-links">
+             <a class="item-menu" href="index.html">
+                 <div class="img-menu"><img src="icon/iconCasa.png" class="icon-menu"></div>
+                 <div class="texto-menu">Home</div>
+             </a>
 
-                <a class="item-menu" onclick="abrirMeusDados()">
-                    <div class="img-menu"><img src="icon/user-dados.png" class="icon-menu"></div>
-                    <div class="texto-menu">Meus dados</div>
-                </a>
+             <a class="item-menu" onclick="abrirMeusDados()">
+                 <div class="img-menu"><img src="icon/user-dados.png" class="icon-menu"></div>
+                 <div class="texto-menu">Meus dados</div>
+             </a>
 
-                <a class="item-menu" href="carrinho.html">
-                    <div class="img-menu"><img src="icon/carrinho-menu.png" class="icon-menu"></div>
-                    <div class="texto-menu">Carrinho</div>
-                </a>
+             <a class="item-menu" href="meusPedidos.html">
+                 <div class="img-menu"><img src="icon/pedido.png" class="icon-menu"></div>
+                 <div class="texto-menu">Meus pedidos</div>
+             </a>
 
-                <a class="item-menu" href="#titulo-section-1">
-                    <div class="img-menu"><img src="icon/promocao-menu.png" class="icon-menu"></div>
-                    <div class="texto-menu">Promoções</div>
-                </a>
+             <a class="item-menu" href="carrinho.html">
+                 <div class="img-menu"><img src="icon/carrinho-menu.png" class="icon-menu"></div>
+                 <div class="texto-menu">Carrinho</div>
+             </a>
 
-                <a class="item-menu" href="#titulo-section-3">
-                    <div class="img-menu"><img src="icon/new-menu.png" class="icon-menu"></div>
-                    <div class="texto-menu">Novidades</div>
-                </a>
+             <a class="item-menu" href="#titulo-section-1">
+                 <div class="img-menu"><img src="icon/promocao-menu.png" class="icon-menu"></div>
+                 <div class="texto-menu">Promoções</div>
+             </a>
 
-                <a class="item-menu" href="#titulo-section-4">
-                    <div class="img-menu"><img src="icon/camisa-menu.png" class="icon-menu"></div>
-                    <div class="texto-menu">Produtos</div>
-                </a>
-            </div>
-        </nav>
+             <a class="item-menu" href="#titulo-section-3">
+                 <div class="img-menu"><img src="icon/new-menu.png" class="icon-menu"></div>
+                 <div class="texto-menu">Novidades</div>
+             </a>
 
-        <label for="abrirMenu">
-            <img src="icon/esconder.png" class="icon-fechar-menu">
-        </label>
-    </main>
+             <a class="item-menu" href="#titulo-section-4">
+                 <div class="img-menu"><img src="icon/camisa-menu.png" class="icon-menu"></div>
+                 <div class="texto-menu">Produtos</div>
+             </a>
+         </div>
+
+         <div class="margem-sair">
+             <label for="abrirMenu">
+                 <img src="icon/esconder.png" class="icon-fechar-menu">
+             </label>
+         </div>
+     </nav>
 
     <!--Conteudo-->
     <main class="container-conteudo">
@@ -195,37 +202,37 @@
                 <div class="divisor">
                     <label class="label-form-cadastro">Nome completo</label>
                     <input class="input-form-cadastro-1" type="text"
-                    id="nome">
+                    id="nome" placeholder="Ex: Ana Júlia">
                 </div>
 
                 <div class="divisor">
                     <label class="label-form-cadastro">Data nascimento</label>
                     <input class="input-form-cadastro-2" type="date"
-                    id="dataNascimento" placeholder="data">
+                    id="dataNascimento">
                 </div>
 
                 <div class="divisor">
                     <label class="label-form-cadastro">CPF</label>
-                    <input class="input-form-cadastro-2" type="number"
-                    maxlength="14" id="cpf">
+                    <input class="input-form-cadastro-2" type="text"
+                    maxlength="14" id="cpf" placeholder="XXX.XXX.XXX-XX">
                 </div>
 
                 <div class="divisor">
                     <label class="label-form-cadastro">Email</label>
                     <input class="input-form-cadastro-1" type="text"
-                           id="emailCadastro">
+                           id="emailCadastro" placeholder="Ex: ana@gmail.com">
                 </div>
 
                 <div class="divisor">
                     <label class="label-form-cadastro">Senha</label>
                     <input class="input-form-cadastro-2" type="password"
-                    id="senhaCadastro">
+                    id="senhaCadastro" placeholder="Ex: 123456">
                 </div>
 
                 <div class="divisor">
                     <label class="label-form-cadastro">Celular</label>
                     <input class="input-form-cadastro-2" type="text"
-                       id="celular">
+                       id="celular" placeholder="(XX) XXXXX-XXXX">
                 </div>
 
                 <footer class="footer-form-cadastro">
@@ -244,7 +251,7 @@
                     <label class="label-form-cadastro">CEP</label>
                     <div class="linha-cep">
                         <input class="input-form-cadastro-4" type="text" height="100%"
-                        id="cep" maxlength="8">
+                        id="cep" maxlength="8" placeholder="XXXXX-XXX">
                         <button class="btn-cep" type="button" onclick="buscarEnderecoPorCEP()">Buscar</button>
                     </div>
                 </div>
@@ -286,31 +293,31 @@
                 <div class="divisor">
                     <label class="label-form-cadastro">Cidade</label>
                     <input class="input-form-cadastro-2" type="text"
-                    id="cidade">
+                    id="cidade" placeholder="Ex: Ceilândia">
                 </div>
 
                 <div class="divisor">
                     <label class="label-form-cadastro">Bairro</label>
                     <input class="input-form-cadastro-2" type="text"
-                    id="bairro">
+                    id="bairro" placeholder="São José">
                 </div>
 
                 <div class="divisor">
                     <label class="label-form-cadastro">Rua</label>
                     <input class="input-form-cadastro-1" type="text"
-                    id="rua">
+                    id="rua" placeholder="Ex: Rua José Moda">
                 </div>
 
-                <div class="divisor">
+                <div class="divisor-1">
                     <label class="label-form-cadastro">Número</label>
                     <input class="input-form-cadastro-3" type="number"
-                    id="numero">
+                           id="numero" placeholder="XXX">
                 </div>
 
-                <div class="divisor">
+                <div class="divisor-2">
                     <label class="label-form-cadastro">Complemento</label>
                     <input class="input-form-cadastro-2" type="text"
-                    id="complemento">
+                           id="complemento" placeholder="Ex: Casa B">
                 </div>
 
                 <footer class="footer-form-cadastro">
@@ -329,12 +336,12 @@
                 <div class="linha-login">
                     <input class="input-form-login" type="email" placeholder="Email"
                     id="email">
-                    <img src="icon/user.png" class="icon-login">
+                    <img src="icon/user.png" class="icon-input">
                 </div>
                 <div class="linha-login">
                     <input class="input-form-login" type="password" placeholder="Senha"
                     id="senha">
-                    <img src="icon/olho.png" class="icon-login">
+                    <img src="icon/olho.png" class="icon-input">
                 </div>
             </div>
             <footer class="footer-form-login">
@@ -342,5 +349,15 @@
             </footer>
         </form>
     </div>
+
+     <!--Message Box-->
+     <div class="esconderMessageBox" id="esconder">
+         <div class="message-box" id="mensagem">
+             <div class="texto-message-box" id="textoMensagem"></div>
+             <footer class="footer-message-box" id="btnMensagem">
+                 <button class="btn-message-box" id="btnMessage" onclick="fecharMessageBox()">Ok</button>
+             </footer>
+         </div>
+     </div>
  </body>
 </html>

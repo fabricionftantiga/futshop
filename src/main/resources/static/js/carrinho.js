@@ -1,21 +1,25 @@
 window.onload = () => {
-    verificarLogin();
+    if(verificarLogin()){
+        listarItens();
+        $("#estadoUSuario").html("Olá "+localStorage.getItem('nome'))
+    }
+    else $("#estadoUSuario").html("Faça login");
+
     renderizarQuantidade(localStorage.getItem('quantidadeItens'));
 }
 
 function listarItens(){
     for(var i = 0; i<= 600; i++) $('#linha-carrinho').remove();
-    $('#total-carrinho').remove();
     $.ajax({
         method: "GET",
-        url: "usuario/"+localStorage.getItem('codigo'),
+        url: "carrinho/"+localStorage.getItem('codigo'),
         success: function (dados){
             var lista = dados.itens;
             lista.forEach(item => {
                 listaItens(item);
             });
             ini = lista.length;
-            $('#texto-carrinho').append('<p class="total-carrinho" id="total-carrinho">R$ '+dados.valorTotalItens.toFixed(2)+'</p>');
+            $('#totalCarrinho').html(dados.valorTotalItens.toFixed(2));
         }
     }).fail(function(xhr, status, errorThrown){
         alert("Erro ao salvar: " +xhr.responseText);
@@ -34,7 +38,8 @@ function adcionaItens(id){
             alert("Erro ao salvar: " +xhr.responseText);
         });
     }
-    else alert("Faça login para poder adcionar um produto ao carrinho!")
+    else gerarMessageBox("rgb(253, 214, 214)", "É necessário fazer login para adcionar um item ao carrinho!!", "Ok");
+
 }
 
 var ini;
@@ -52,7 +57,8 @@ function alterar(codigo, acao){
                 $('#quantidadeItens-'+item.codigo).html(item.quantidade);
                 $('#valorFinal-'+item.codigo).html("R$ "+item.precoFinal.toFixed(2));
             });
-            $('#total-carrinho').html("R$ "+dados.valorTotalItens.toFixed(2));
+
+            $('#totalCarrinho').html(dados.valorTotalItens.toFixed(2));
         }
     }).fail(function(xhr, status, errorThrown){
         alert("Erro ao salvar: " +xhr.responseText);

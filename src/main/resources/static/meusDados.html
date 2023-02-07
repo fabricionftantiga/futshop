@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="css/meusDados.css">
     <link rel="stylesheet" href="css/formularios.css">
+    <link rel="stylesheet" href="css/messageBox.css">
 
     <script
             src="https://code.jquery.com/jquery-3.6.1.min.js"
@@ -26,37 +27,43 @@
 
  <body>
      <!--Barra de menu-->
-     <input type="checkbox" class="menu" id="abrirMenu">
-     <main class="container-menu">
-         <nav class="nav-menu">
-             <div class="menu-login" id="nomeUsuario">
-                 <p class="usuario-logado" id="estadoUSuario"></p>
-             </div>
+     <input type="checkbox" class="input-menu" id="abrirMenu">
+     <div class="sobreposicao-menu"></div>
+     <nav class="container-menu">
+         <div class="menu-login" id="nomeUsuario">
+             <p class="usuario-logado" id="estadoUSuario"></p>
+         </div>
 
-             <header class="header-menu">FutShop</header>
+         <header class="header-menu">FutShop</header>
 
-             <div class="menu-links">
-                 <a class="item-menu" href="index.html">
-                     <div class="img-menu"><img src="icon/iconCasa.png" class="icon-menu"></div>
-                     <div class="texto-menu">Home</div>
-                 </a>
+         <div class="menu-links">
+             <a class="item-menu" href="index.html">
+                 <div class="img-menu"><img src="icon/iconCasa.png" class="icon-menu"></div>
+                 <div class="texto-menu">Home</div>
+             </a>
 
-                 <a class="item-menu" onclick="abrirMeusDados()">
-                     <div class="img-menu"><img src="icon/user-dados.png" class="icon-menu"></div>
-                     <div class="texto-menu">Meus dados</div>
-                 </a>
+             <a class="item-menu" onclick="abrirMeusDados()">
+                 <div class="img-menu"><img src="icon/user-dados.png" class="icon-menu"></div>
+                 <div class="texto-menu">Meus dados</div>
+             </a>
 
-                 <a class="item-menu" href="carrinho.html">
-                     <div class="img-menu"><img src="icon/carrinho-menu.png" class="icon-menu"></div>
-                     <div class="texto-menu">Carrinho</div>
-                 </a>
-             </div>
-         </nav>
+             <a class="item-menu" href="meusPedidos.html">
+                 <div class="img-menu"><img src="icon/pedido.png" class="icon-menu"></div>
+                 <div class="texto-menu">Meus pedidos</div>
+             </a>
 
-         <label for="abrirMenu">
-             <img src="icon/esconder.png" class="icon-fechar-menu">
-         </label>
-     </main>
+             <a class="item-menu" href="carrinho.html">
+                 <div class="img-menu"><img src="icon/carrinho-menu.png" class="icon-menu"></div>
+                 <div class="texto-menu">Carrinho</div>
+             </a>
+         </div>
+
+         <div class="margem-sair">
+             <label for="abrirMenu">
+                 <img src="icon/esconder.png" class="icon-fechar-menu">
+             </label>
+         </div>
+     </nav>
 
     <main class="container-conteudo">
         <!--Tela de dados-->
@@ -65,10 +72,10 @@
                 <div class="info-dados">
                     <header class="titulo-dados">
                         <label for="abrirMenu">
-                            <img src="icon/iconMenu.png" class="icon-abrir-menu">
+                            <img src="icon/iconMenu.png" class="icon-abrir-menu-md">
                         </label>
                         <img src="img/perfil.png" class="icon-perfil">
-                        <p class="nome-usuario" id="nomeUsuarioExibir">Fabrício</p>
+                        <p class="nome-usuario" id="nomeUsuarioExibir">Nome</p>
                     </header>
 
                     <div class="info-dados-pessoal">
@@ -76,32 +83,27 @@
                         <div class="conteudo">
                             <div class="linha-dados">
                                 <p class="subtitulo-dados">Nome</p>
-                                <p class="texto-dados" id="nomeExibir"></p>
+                                <p class="texto-dados" id="nomeExibir">XXXXXXXX</p>
                             </div>
 
                             <div class="linha-dados">
                                 <p class="subtitulo-dados">Data nascimento</p>
-                                <p class="texto-dados" id="dataExibir">21/08/2004</p>
+                                <p class="texto-dados" id="dataExibir">XX/XX/XXXX</p>
                             </div>
 
                             <div class="linha-dados">
                                 <p class="subtitulo-dados">CPF</p>
-                                <p class="texto-dados" id="cpfExibir">353.847.838-65</p>
+                                <p class="texto-dados" id="cpfExibir">XXX.XXX.XXX-XX</p>
                             </div>
 
                             <div class="linha-dados">
                                 <p class="subtitulo-dados">Email</p>
-                                <p class="texto-dados" id="emailExibir">fabriciodozerofz859@gmail.com</p>
-                            </div>
-
-                            <div class="linha-dados">
-                                <p class="subtitulo-dados">Senha</p>
-                                <p class="texto-dados" id="senhaExibir">*****</p>
+                                <p class="texto-dados" id="emailExibir">XXXX@gmail.com</p>
                             </div>
 
                             <div class="linha-dados">
                                 <p class="subtitulo-dados">Celular</p>
-                                <p class="texto-dados" id="celularExibir">(19) 985697236</p>
+                                <p class="texto-dados" id="celularExibir">(XX) XXXXX-XXXX</p>
                             </div>
                         </div>
                     </div>
@@ -111,37 +113,37 @@
                         <div class="conteudo">
                             <div class="linha-dados">
                                 <p class="subtitulo-dados">CEP</p>
-                                <p class="texto-dados" id="cepExibir">13145848</p>
+                                <p class="texto-dados" id="cepExibir">XXXXX-XXX</p>
                             </div>
 
                             <div class="linha-dados">
                                 <p class="subtitulo-dados">Estado</p>
-                                <p class="texto-dados" id="estadoExibir">SP</p>
+                                <p class="texto-dados" id="estadoExibir">XX</p>
                             </div>
 
                             <div class="linha-dados">
                                 <p class="subtitulo-dados">Cidade</p>
-                                <p class="texto-dados" id="cidadeExibir">Paulínia</p>
+                                <p class="texto-dados" id="cidadeExibir">XXXXXXXXX</p>
                             </div>
 
                             <div class="linha-dados">
                                 <p class="subtitulo-dados">Bairro</p>
-                                <p class="texto-dados" id="bairroExibir">São José 2</p>
+                                <p class="texto-dados" id="bairroExibir">XXXXXXX</p>
                             </div>
 
                             <div class="linha-dados">
                                 <p class="subtitulo-dados">Rua</p>
-                                <p class="texto-dados" id="ruaExibir">Rua Agripino Jacinto de Oliveira</p>
+                                <p class="texto-dados" id="ruaExibir">XXXXXXX</p>
                             </div>
 
                             <div class="linha-dados">
                                 <p class="subtitulo-dados">Número</p>
-                                <p class="texto-dados" id="numeroExibir">31</p>
+                                <p class="texto-dados" id="numeroExibir">XXX</p>
                             </div>
 
                             <div class="linha-dados">
                                 <p class="subtitulo-dados">Complemento</p>
-                                <p class="texto-dados" id="complementoExibir">De frente pro mato</p>
+                                <p class="texto-dados" id="complementoExibir">XXXXXXX</p>
                             </div>
                         </div>
                     </div>
@@ -270,16 +272,16 @@
                            id="rua">
                 </div>
 
-                <div class="divisor">
+                <div class="divisor-1">
                     <label class="label-form-cadastro">Número</label>
                     <input class="input-form-cadastro-3" type="number"
-                           id="numero">
+                           id="numero" placeholder="XXX">
                 </div>
 
-                <div class="divisor">
+                <div class="divisor-2">
                     <label class="label-form-cadastro">Complemento</label>
                     <input class="input-form-cadastro-2" type="text"
-                           id="complemento">
+                           id="complemento" placeholder="Ex: Casa B">
                 </div>
 
                 <footer class="footer-form-cadastro">
@@ -287,6 +289,16 @@
                 </footer>
             </form>
         </div>
+    </div>
+
+    <!--Message Box-->
+    <div class="esconderMessageBox" id="esconder">
+     <div class="message-box" id="mensagem">
+         <div class="texto-message-box" id="textoMensagem"></div>
+         <footer class="footer-message-box" id="btnMensagem">
+             <button class="btn-message-box" id="btnMessage" onclick="fecharMessageBox()">Ok</button>
+         </footer>
+     </div>
     </div>
  </body>
 </html>

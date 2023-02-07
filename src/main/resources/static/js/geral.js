@@ -1,37 +1,40 @@
-function verificarEstadoDeLogin(){
-    if(localStorage.getItem('logado') == 'logado'){
-        document.getElementById('login').style.display="none";
-        document.getElementById('sair').style.display="initial";
-    }
-    else{
-        document.getElementById('sair').style.display="none";
-        document.getElementById('login').style.display="initial";
-    }
-}
-
-
 function verificarLogin(){
-    if(localStorage.getItem('logado') == 'logado'){
-        $("#estadoUSuario").html("Olá "+localStorage.getItem('nome'))
-        listarItens()
-    }
-    else $("#estadoUSuario").html("Faça login");
+    if(localStorage.getItem('logado') == 'logado') return true;
 }
-
 
 function renderizarQuantidade(quantidade){
-    if(localStorage.getItem('logado') == 'logado'){
+    if(verificarLogin()){
         localStorage.setItem('quantidadeItens', quantidade);
         $('#quantidade-carrinho').html(localStorage.getItem('quantidadeItens'));
     }
     else $('#quantidade-carrinho').html("0");
 }
 
-
 function abrirMeusDados(){
-    if(localStorage.getItem('logado') == 'logado') location.href="meusDados.html";
+    if(verificarLogin()) location.href="meusDados.html";
     else{
-        document.getElementById('containerLogin').classList.add('ativo');
-        alert("Faça login para poder vizualizar seus dados");
+        renderizarFormLogin(1);
+        gerarMessageBox("rgb(253, 214, 214)", "É necessário fazer login para acessar seus dados!!", "Ok");
     }
+}
+
+function gerarMessageBox(cor, mensagem, textobtn, acesso){
+    $('#esconder').addClass('ativo')
+    $('#mensagem').css("transform", "translateY(250px)");
+    $('#mensagem').css("background", cor);
+
+    $('#textoMensagem').html(mensagem);
+    $('#btnMessage').html(textobtn);
+
+    if(acesso){
+        renderizarFormCadastro(2);
+        renderizarFormLogin(2);
+    }
+}
+
+function fecharMessageBox(){
+    $('#esconder').removeClass('ativo')
+    $('#mensagem'). css("transform", "translateY(-250px)");
+
+    if($('#btnMessage').html() == "Prosseguir") location.reload();
 }

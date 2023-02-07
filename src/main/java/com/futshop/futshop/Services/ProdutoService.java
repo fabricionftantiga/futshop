@@ -4,7 +4,6 @@ import com.futshop.futshop.Model.ProdutoModel;
 import com.futshop.futshop.Repository.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -13,6 +12,7 @@ public class ProdutoService {
 
     @Autowired
     private ProdutoRepository repository;
+
 
     public List<ProdutoModel> listarProdutos(){
         return repository.findAll();
@@ -34,16 +34,18 @@ public class ProdutoService {
         return repository.buscarPorID(codigo);
     }
 
-    public void salvarProduto(ProdutoModel produto) {
+    public ProdutoModel salvarProduto(ProdutoModel produto) {
         produto.setValorComDesconto(produto.getValorBase() - produto.getValorBase() * produto.getPromocao() / 100);
-        repository.save(produto);
+        return repository.save(produto);
     }
 
-    public void deletarProdutoPorID(Long codigo){
+    public String deletarProdutoPorID(Long codigo){
         repository.deleteById(codigo);
+        return "Produto deletado com sucesso!!";
     }
 
-    public void deletarTodosProdutos(){
+    public String deletarTodosProdutos(){
         repository.deleteAll();
+        return "Todos produtos deletados com sucesso!!";
     }
 }

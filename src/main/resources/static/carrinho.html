@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/layout.css">
     <link rel="stylesheet" href="css/header-main-footer.css">
     <link rel="stylesheet" href="css/carrinho.css">
+    <link rel="stylesheet" href="css/messageBox.css">
 
     <script
         src="https://code.jquery.com/jquery-3.6.1.min.js"
@@ -19,42 +20,49 @@
 
     <script src="js/index.js" defer></script>
     <script src="js/geral.js" defer></script>
+     <script src="js/pedidos.js" defer></script>
     <script src="js/carrinho.js" defer></script>
  </head>
 
  <body>
      <!--Barra de menu-->
-     <input type="checkbox" class="menu" id="abrirMenu">
-     <main class="container-menu">
-         <nav class="nav-menu">
-             <div class="menu-login" id="nomeUsuario">
-                 <p class="usuario-logado" id="estadoUSuario"></p>
-             </div>
+     <input type="checkbox" class="input-menu" id="abrirMenu">
+     <div class="sobreposicao-menu"></div>
+     <nav class="container-menu">
+         <div class="menu-login" id="nomeUsuario">
+             <p class="usuario-logado" id="estadoUSuario"></p>
+         </div>
 
-             <header class="header-menu">FutShop</header>
+         <header class="header-menu">FutShop</header>
 
-             <div class="menu-links">
-                 <a class="item-menu" href="index.html">
-                     <div class="img-menu"><img src="icon/iconCasa.png" class="icon-menu"></div>
-                     <div class="texto-menu">Home</div>
-                 </a>
+         <div class="menu-links">
+             <a class="item-menu" href="index.html">
+                 <div class="img-menu"><img src="icon/iconCasa.png" class="icon-menu"></div>
+                 <div class="texto-menu">Home</div>
+             </a>
 
-                 <a class="item-menu" onclick="abrirMeusDados()">
-                     <div class="img-menu"><img src="icon/user-dados.png" class="icon-menu"></div>
-                     <div class="texto-menu">Meus dados</div>
-                 </a>
+             <a class="item-menu" onclick="abrirMeusDados()">
+                 <div class="img-menu"><img src="icon/user-dados.png" class="icon-menu"></div>
+                 <div class="texto-menu">Meus dados</div>
+             </a>
 
-                 <a class="item-menu" href="carrinho.html">
-                     <div class="img-menu"><img src="icon/carrinho-menu.png" class="icon-menu"></div>
-                     <div class="texto-menu">Carrinho</div>
-                 </a>
-             </div>
-         </nav>
+             <a class="item-menu" href="meusPedidos.html">
+                 <div class="img-menu"><img src="icon/pedido.png" class="icon-menu"></div>
+                 <div class="texto-menu">Meus pedidos</div>
+             </a>
 
-         <label for="abrirMenu">
-             <img src="icon/esconder.png" class="icon-fechar-menu">
-         </label>
-     </main>
+             <a class="item-menu" href="carrinho.html">
+                 <div class="img-menu"><img src="icon/carrinho-menu.png" class="icon-menu"></div>
+                 <div class="texto-menu">Carrinho</div>
+             </a>
+         </div>
+
+         <div class="margem-sair">
+             <label for="abrirMenu">
+                 <img src="icon/esconder.png" class="icon-fechar-menu">
+             </label>
+         </div>
+     </nav>
 
     <!--Conteudo-->
     <main class="container-conteudo">
@@ -65,7 +73,6 @@
                 </label>
 
                 <a class="aCarrinho" href="carrinho.html">
-
                     <img src="icon/carrinho-carrinho.png" width="33px">
                     <p class="quantidade-carrinho" id="quantidade-carrinho">0</p>
                 </a>
@@ -93,9 +100,10 @@
                     <div class="pagamento">
                         <div class="part-footer-1">
                             <p class="texto-carrinho" id="texto-carrinho">Total: </p>
+                            <p class="total-carrinho" id="totalCarrinho">0.0</p>
                         </div>
                         <div class="part-footer-2">
-                            <button class="btn-carrinho">Fazer pedido</button>
+                            <button class="btn-carrinho" onclick="renderizarFormResumoPedido(1)">Fazer pedido</button>
                         </div>
                     </div>
                 </footer>
@@ -144,5 +152,50 @@
             </div>
         </footer>
     </main>
+
+     <!--Resumo pedido-->
+     <div class="esconder-pedido" id="esconderPedido">
+         <img src="icon/esconder.png" class="icon-esconder-pedido" onclick="renderizarFormResumoPedido(2)">
+         <div class="resumo-pedido">
+             <div class="margem-pedido">
+                 <div class="divisor-pedido">
+                     <label class="subtitulo-pedido">Tipo de pagamento</label>
+                     <select class="select-pedido" id="tipoPagamento" onchange="gerarParcelas()">
+                         <option value="escolha">Escolha</option>
+                         <option value="PIX">Pix</option>
+                         <option value="Mercado Pago">Mercado Pago</option>
+                         <option value="Pic pay">Pic Pay</option>
+                         <option value="Transferência">Transferência</option>
+                     </select>
+                 </div>
+
+                 <div class="divisor-pedido">
+                     <label class="subtitulo-pedido">Número de parcelas</label>
+                     <select class="select-pedido" id="quantidadeParcelas">
+                         <option value="escolha">Escolha</option>
+                     </select>
+                 </div>
+
+                 <div class="divisor-pedido">
+                     <label class="subtitulo-pedido">Endereço de destino</label>
+                     <p class="endereco">13145-848, Paulínia - SP, São José 2, Rua Agripino Jacinto de Oliveira Nº31</p>
+                 </div>
+
+                 <div class="divisor-pedido-btn">
+                     <button class="btn-confirmar-pedido" onclick="confirmarPedido()">Confirmar pedido</button>
+                 </div>
+             </div>
+         </div>
+     </div>
+
+     <!--Message Box-->
+     <div class="esconderMessageBox" id="esconder">
+         <div class="message-box" id="mensagem">
+             <div class="texto-message-box" id="textoMensagem"></div>
+             <footer class="footer-message-box" id="btnMensagem">
+                 <button class="btn-message-box" id="btnMessage" onclick="fecharMessageBox()">Ok</button>
+             </footer>
+         </div>
+     </div>
  </body>
 </html>

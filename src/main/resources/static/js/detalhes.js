@@ -1,5 +1,6 @@
 window.onload = () => {
-    verificarLogin();
+    if(verificarLogin()) $("#estadoUSuario").html("Olá "+localStorage.getItem('nome'))
+    else $("#estadoUSuario").html("Faça login");
     mostrarProduto();
     renderizarQuantidade(localStorage.getItem('quantidadeItens'));
 }

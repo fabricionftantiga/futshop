@@ -22,37 +22,43 @@
 
  <body>
      <!--Barra de menu-->
-     <input type="checkbox" class="menu" id="abrirMenu">
-     <main class="container-menu">
-         <nav class="nav-menu">
-             <div class="menu-login" id="nomeUsuario">
-                 <p class="usuario-logado" id="estadoUSuario"></p>
-             </div>
+     <input type="checkbox" class="input-menu" id="abrirMenu">
+     <div class="sobreposicao-menu"></div>
+     <nav class="container-menu">
+         <div class="menu-login" id="nomeUsuario">
+             <p class="usuario-logado" id="estadoUSuario"></p>
+         </div>
 
-             <header class="header-menu">FutShop</header>
+         <header class="header-menu">FutShop</header>
 
-             <div class="menu-links">
-                 <a class="item-menu" href="index.html">
-                     <div class="img-menu"><img src="icon/iconCasa.png" class="icon-menu"></div>
-                     <div class="texto-menu">Home</div>
-                 </a>
+         <div class="menu-links">
+             <a class="item-menu" href="index.html">
+                 <div class="img-menu"><img src="icon/iconCasa.png" class="icon-menu"></div>
+                 <div class="texto-menu">Home</div>
+             </a>
 
-                 <a class="item-menu" onclick="abrirMeusDados()">
-                     <div class="img-menu"><img src="icon/user-dados.png" class="icon-menu"></div>
-                     <div class="texto-menu">Meus dados</div>
-                 </a>
+             <a class="item-menu" onclick="abrirMeusDados()">
+                 <div class="img-menu"><img src="icon/user-dados.png" class="icon-menu"></div>
+                 <div class="texto-menu">Meus dados</div>
+             </a>
 
-                 <a class="item-menu" href="carrinho.html">
-                     <div class="img-menu"><img src="icon/carrinho-menu.png" class="icon-menu"></div>
-                     <div class="texto-menu">Carrinho</div>
-                 </a>
-             </div>
-         </nav>
+             <a class="item-menu" href="meusPedidos.html">
+                 <div class="img-menu"><img src="icon/pedido.png" class="icon-menu"></div>
+                 <div class="texto-menu">Meus pedidos</div>
+             </a>
 
-         <label for="abrirMenu">
-             <img src="icon/esconder.png" class="icon-fechar-menu">
-         </label>
-     </main>
+             <a class="item-menu" href="carrinho.html">
+                 <div class="img-menu"><img src="icon/carrinho-menu.png" class="icon-menu"></div>
+                 <div class="texto-menu">Carrinho</div>
+             </a>
+         </div>
+
+         <div class="margem-sair">
+             <label for="abrirMenu">
+                 <img src="icon/esconder.png" class="icon-fechar-menu">
+             </label>
+         </div>
+     </nav>
 
     <!--Conteudo-->
     <main class="container-conteudo">
